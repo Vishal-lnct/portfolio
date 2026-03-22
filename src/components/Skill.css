@@ -1,0 +1,155 @@
+/* ===== SKILL ===== */
+.skill {
+  min-height: 100vh;
+  padding: 100px 6vw;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.skill--visible { opacity: 1; transform: translateY(0); }
+
+.skill__bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.skill__orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(100px); opacity: 0.08;
+}
+.skill__orb--1 { width: 350px; height: 350px; background: #3b82f6; top: 0; left: -100px; }
+.skill__orb--2 { width: 300px; height: 300px; background: #8b5cf6; bottom: 0; right: -80px; }
+
+.skill__container { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+
+.skill__header { text-align: center; margin-bottom: 60px; }
+.skill__tag {
+  display: inline-block;
+  background: rgba(59,130,246,0.12);
+  color: #60a5fa;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(59,130,246,0.25);
+  margin-bottom: 14px;
+}
+.skill__title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  margin: 0 0 16px;
+}
+.skill__line {
+  width: 50px; height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  border-radius: 2px; margin: 0 auto 16px;
+}
+.skill__subtitle { font-size: 1rem; color: #64748b; }
+
+/* groups */
+.skill__groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.skill__group {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  padding: 28px;
+  transition: all 0.2s ease;
+  animation: fadeUp 0.6s ease both;
+}
+.skill__group:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(59,130,246,0.2);
+  transform: translateY(-4px);
+}
+
+.skill__group-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 22px;
+}
+.skill__group-icon { font-size: 1.4rem; }
+.skill__group-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.skill__bars { display: flex; flex-direction: column; gap: 16px; }
+.skill__bar-item { animation: fadeUp 0.5s ease both; }
+.skill__bar-top {
+  display: flex; justify-content: space-between;
+  margin-bottom: 7px;
+}
+.skill__bar-name { font-size: 0.9rem; color: #cbd5e1; font-weight: 500; }
+.skill__bar-pct { font-size: 0.8rem; color: #60a5fa; font-weight: 600; }
+.skill__bar-track {
+  height: 7px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.skill__bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--c), color-mix(in srgb, var(--c) 70%, #06b6d4));
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.skill--visible .skill__bar-fill { width: var(--w); }
+
+/* tech stack */
+.skill__tech-section { text-align: center; }
+.skill__tech-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #94a3b8;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.skill__tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.skill__tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 30px;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  animation: fadeUp 0.5s ease both;
+}
+.skill__tech-pill:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+.skill__tech-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .skill__groups { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,198 @@
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 6vw;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.header--scrolled {
+  background: rgba(8, 15, 30, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
+}
+
+.header-inner {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── logo ── */
+.header-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.header-logo-name { color: #f1f5f9; }
+.header-logo-dot  { color: #3b82f6; font-size: 1.6rem; line-height: 1; }
+.header-logo-dev  { color: #38bdf8; font-size: 1rem; font-weight: 700; }
+
+/* ── nav ── */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── link ── */
+.header-link {
+  position: relative;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #94a3b8;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+  overflow: hidden;
+}
+
+.header-link:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* animated underline bar */
+.header-link-bar {
+  position: absolute;
+  bottom: 3px; left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #38bdf8);
+  border-radius: 2px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-link--active {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.header-link--active .header-link-bar {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.header-link:hover .header-link-bar {
+  transform: translateX(-50%) scaleX(0.7);
+}
+
+/* ── hire me button ── */
+.header-hire {
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 10px;
+  margin-left: 10px;
+  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+  box-shadow: 0 2px 16px rgba(59, 130, 246, 0.35);
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.header-hire:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(59, 130, 246, 0.5);
+}
+
+/* ── hamburger ── */
+.header-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.header-burger:hover { background: rgba(255,255,255,0.06); }
+
+.header-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #94a3b8;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+  transform-origin: center;
+}
+
+.header-burger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header-burger--open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.header-burger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── mobile ── */
+@media (max-width: 860px) {
+  .header-burger { display: flex; }
+
+  .header-nav {
+    position: fixed;
+    top: 68px;
+    left: 0; right: 0;
+    background: rgba(6, 12, 26, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 6vw 28px;
+    gap: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    /* slide up by default */
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.35s ease;
+  }
+
+  .header-nav--open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .header-link {
+    font-size: 1rem;
+    padding: 13px 16px;
+    border-radius: 10px;
+  }
+
+  .header-link-bar {
+    bottom: 6px;
+  }
+
+  .header-hire {
+    margin: 10px 0 0;
+    text-align: center;
+    padding: 13px 20px;
+    font-size: 0.95rem;
+  }
+}

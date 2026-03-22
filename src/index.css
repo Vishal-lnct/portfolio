@@ -1,0 +1,17 @@
+.active_class{
+    color: red;
+  
+  }
+  .no{
+    color:white;
+  }
+  #size{
+    margin-top: 15rem;
+    height: 9rem;
+    width:50rem;
+    
+    text-align:left;
+    font-size: 1rem;
+   
+    color: brown;
+  }
