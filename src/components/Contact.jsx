@@ -108,7 +108,7 @@ const Contact = () => {
           <motion.h2 className="contact-title" variants={fadeUp}>Contact Me</motion.h2>
           <motion.div className="contact-line" variants={fadeUp} />
           <motion.p className="contact-subtitle" variants={fadeUp}>
-            Open to <strong>internships</strong> and <strong>junior frontend roles</strong>
+            Open to <strong>internships</strong> and <strong>Full stack roles</strong>
           </motion.p>
         </motion.div>
 

@@ -52,8 +52,8 @@ const About = () => {
             transition={{ duration: 0.7 }}
           >
             <div className="about-photo-bg" />
-            <img src="/photo.jpg" alt="Vishal Kumar" className="about-photo" />
-            <div className="about-photo-tag">📍 Indore, India</div>
+            <img src="/vishalpic.jpg" alt="Vishal Kumar" className="about-photo" />
+            <div className="about-photo-tag">📍 Bhopal, India</div>
           </motion.div>
 
           <motion.div
